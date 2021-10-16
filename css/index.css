@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body p{
+    margin: 0;
+}
+
+.step-left-background{
+    width: 50%;
+    height: auto;
+    background: linear-gradient(180deg, #6217EA 0%, #5E02B5 77.6%);
+    color: #fff;
+}
+
+.step-left-container{
+    margin: 35.4% 8%;
+}
+
+.step-right-background{
+    width: 50%;
+    height: auto;
+    background: #EEEDEF;
+}
+
+.step-right-container{
+    text-align: center;
+    margin: 35.4% 0;
+}
+
+.titulo-credenciales{
+    font-size: 40px;
+    line-height: 47px;
+    color: #4B4B4B;
+}
+
+.correo-container{
+    display: block;
+    color: #4B4B4B;
+}
+
+.step-right-container input{
+    width: 370px;
+    height: 35px;
+    background: #FFFFFF;
+    border: 2px solid #CECDCF;
+    box-sizing: border-box;
+}
+
+#siguiente{
+    width: 370px;
+    height: 35px;
+    background: #8800FF;
+    color: #fff;
+    font-size: 15px;
+    line-height: 33px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    margin-top: 25px;
+}
+
+.titulo{
+    margin-bottom: 20px;
+}
+
+.display-important{
+    display: none !important;
+}
+
+.rectangles-background{
+    position: absolute;
+    width: 953px;
+    height: 484px;
+    top: 22%;
+}
