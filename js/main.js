@@ -8,6 +8,7 @@ function StringIsNullOrEmpty(value) {
 jQuery(document).ready(function ($) {
     $.extend($.fn, {
         nextStep: function (param) {
+            debugger
             var div = $('#step-' + currentStep);
             var isFunction = div.attr('action-next');
             var response = true;
@@ -37,7 +38,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('#siguiente').click(function () {
+    $('.siguiente').click(function () {
         $.fn.nextStep();
         $.fn.startSteps();
     });

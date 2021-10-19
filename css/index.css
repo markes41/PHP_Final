@@ -1,6 +1,7 @@
-body{
+body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: #EEEDEF;
 }
 
 body p{
@@ -9,14 +10,11 @@ body p{
 
 .step-left-background{
     width: 50%;
-    height: auto;
-    background: linear-gradient(180deg, #6217EA 0%, #5E02B5 77.6%);
+    height: 100%;
+    background-image: url("../imagenes/step-background.jpg");
     color: #fff;
 }
 
-.step-left-container{
-    margin: 35.4% 8%;
-}
 
 .step-right-background{
     width: 50%;
@@ -24,10 +22,6 @@ body p{
     background: #EEEDEF;
 }
 
-.step-right-container{
-    text-align: center;
-    margin: 35.4% 0;
-}
 
 .titulo-credenciales{
     font-size: 40px;
@@ -48,7 +42,7 @@ body p{
     box-sizing: border-box;
 }
 
-#siguiente{
+.siguiente{
     width: 370px;
     height: 35px;
     background: #8800FF;
@@ -69,9 +63,11 @@ body p{
     display: none !important;
 }
 
-.rectangles-background{
-    position: absolute;
-    width: 953px;
-    height: 484px;
-    top: 22%;
+.navbar {
+    background-color: #8800FF !important;
+    align-items: center;
+}
+
+.navbar a{
+    color: #fff !important;
 }
