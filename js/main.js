@@ -48,3 +48,54 @@ jQuery(document).ready(function ($) {
         $.fn.startSteps();
     });
 });
+
+    $('document').ready(function() {   
+        $("#register-form").validate({
+            rules:
+         {
+         nombre: {
+            required: true,
+         minlength: 3
+         },
+         password: {
+         required: true,
+         minlength: 6,
+         maxlength: 16
+         },
+         cpassword: {
+         required: true,
+         comparar: '#password'
+         },
+         email: {
+                  required: true,
+                  email: true
+                  },
+          },
+             mensajes:
+          {
+                  password:{
+                            required: "Por favor ingrese la contraseña",
+                            minlength: "La contraseña no puede tener menos de 6 caracteres"
+                           },
+                    email: "Por favor ingrese un mail valido",
+         cpassword:{
+            requerido: "Por favor vuelva a reingresar su contraseña",
+            comparar: "Las constraseñas no coinciden !"
+             }
+             },
+          submitHandler: submitForm 
+             });  
+          function submitForm() {  
+          var data = $("#registrarse").serialize();    
+          debugger
+          $.ajax({    
+            type : 'POST',
+            url  : 'registrarse.php',
+            data : data,
+            success :  function(response) {  
+                
+                }
+            });
+            return false;
+          }
+        });
