@@ -6,12 +6,11 @@ $db_pass= "";
 $db_name = "phpfinal";
 
 
-$conectar = mysqli_connect($hostname, $db_user, $db_pass, $db_name) or die ("Fallo la coneccion: " . mysqli_connect_error());
+$conectar = new mysqli($hostname, $db_user, $db_pass, $db_name);
 
-mysqli_set_charset($conectar, "utf8");
 
-if(mysqli_connect_errno()){
-    printf("Fallo la coneccion:", mysqli_connect_error());
+if($conectar->connect_errno){
+    printf("Fallo la coneccion:", $conectar->connect_error);
     exit();
 }
 
