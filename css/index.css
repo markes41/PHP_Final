@@ -53,6 +53,7 @@ body p{
     outline: none;
     border: none;
     margin-top: 25px;
+    cursor: pointer !important;
 }
 
 .titulo{
@@ -70,4 +71,99 @@ body p{
 
 .navbar a{
     color: #fff !important;
+}
+
+.btnBuscar {
+    background-color: #fff;
+    color: #8800FF;
+}
+
+.productos-container {
+    width: 1586px;
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    margin: 2rem auto;
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: contain;
+    padding: 2rem;
+}
+
+.card{
+    margin: 0 1rem;
+}
+
+.container h3{
+    font-size: 20px;
+}
+
+.categoria-box {
+    background: #f4b434;
+    width: 160px;
+    height: 100px;
+    text-align: center;
+    color: rgba(255,255, 255, 0.60);
+    font-size: 40px;
+    margin: .75rem;
+    transition: linear .2s;
+    cursor: pointer;
+}
+
+.categoria-box:hover{
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.13); 
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.13);
+}
+
+.categoria-box p{
+    margin: auto;
+    font-size: 18px !important;
+    
+}
+
+.card-productos {
+    background: #fff;
+    transition: linear .2s;
+    width: 312px;
+    height: 370px;
+    margin: .50rem;
+    padding: 0;
+    -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.13);
+    box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.13);
+}
+
+.card-productos img{
+    max-width: 250px;
+    margin: auto;
+    display: flex;
+}
+
+.card-productos p{
+    font-size: 18px;
+}
+
+.btn-producto {
+    width: 100%;
+    background: #8800FF;
+    color: #fff;
+    outline: none;
+    height: 45px;
+}
+
+.producto-img-container {
+    height: 31vh !important;
+}
+
+.btn-producto:hover {
+    color: #e6e6e6;
+}
+
+.ver-mas {
+    font-size: 15px;
+    margin-left: 5px;
+    color: #f4b434;
+    cursor: pointer;
 }
