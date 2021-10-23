@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 22:18:50
+-- Tiempo de generación: 24-10-2021 a las 01:21:30
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -75,8 +75,9 @@ CREATE TABLE `usuarios` (
   `Username` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Password` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Nombre` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Apellido` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `Fecha_Nacimiento` date DEFAULT NULL,
+  `Fecha_Nacimiento` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Dni` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Id_Rol` int(4) DEFAULT NULL,
   `Carrito` varchar(250) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -88,18 +89,21 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`Id`, `Username`, `Password`, `Nombre`, `Email`, `Fecha_Nacimiento`, `Dni`, `Id_Rol`, `Carrito`, `Activo`, `Codigo_Recuperacion`) VALUES
-(1, NULL, '123', NULL, 'marcio', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, NULL, 'Dinovo1997', NULL, 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, 'Dinovo1997', NULL, 'marcioabriola2@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, NULL, 'Dinovo1997', NULL, 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, NULL, 'Dinovo1997', NULL, 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, NULL, 'Dinovo1997', NULL, 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, NULL, 'Dinovo1997', NULL, 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, NULL, '123456', NULL, 'marciola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, NULL, 'dXR3iAQT57Ds4yL', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, NULL, 'Dinovo1997', NULL, 'marciolax@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, NULL, '123456', NULL, 'aawdawdaw@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `usuarios` (`Id`, `Username`, `Password`, `Nombre`, `Apellido`, `Email`, `Fecha_Nacimiento`, `Dni`, `Id_Rol`, `Carrito`, `Activo`, `Codigo_Recuperacion`) VALUES
+(1, NULL, '123', NULL, '', 'marcio', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, 'Dinovo1997', NULL, '', 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, NULL, 'Dinovo1997', NULL, '', 'marcioabriola2@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, NULL, 'Dinovo1997', NULL, '', 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, NULL, 'Dinovo1997', NULL, '', 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, NULL, 'Dinovo1997', NULL, '', 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, NULL, 'Dinovo1997', NULL, '', 'marcioabriola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, NULL, '123456', NULL, '', 'marciola@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, NULL, 'dXR3iAQT57Ds4yL', NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, NULL, 'Dinovo1997', NULL, '', 'marciolax@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, NULL, '123456', NULL, '', 'aawdawdaw@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, NULL, 'w', 'w', '', 'w', '0000-00-00', '400', NULL, NULL, NULL, NULL),
+(13, NULL, '123456', NULL, NULL, 'awdawd@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, NULL, '123456', 'wad', 'wad', 'wadwafwegfsef@gmail.com', '2021-10-28', '4566', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -158,7 +162,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
