@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
     });
 });
 
-    $('document').ready(function() {   
+    $('document').ready(function() {         
         $("#registrarse").validate({
             rules:
          {
@@ -68,10 +68,14 @@ jQuery(document).ready(function ($) {
          },
          email: {
                   required: true,
-                  email: true
+                  email: true,
+                  prueba: function(){
+                    $('.siguiente').attr('hidden');
+                  }
+                 
                   },
           },
-             mensajes:
+             messages:
           {
                   password:{
                             required: "Por favor ingrese la contraseña",
