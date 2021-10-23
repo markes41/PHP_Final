@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
 });
 
     $('document').ready(function() {   
-        $("#register-form").validate({
+        $("#registrarse").validate({
             rules:
          {
          nombre: {

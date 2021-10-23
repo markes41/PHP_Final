@@ -50,7 +50,7 @@ include_once("registrarse.php");
                         <input class="col-md-12" type="password" name="cpassword">
                     </div>
 
-                    <button class="siguiente" name="finalizar" type="submit">Siguiente</button>
+                    <button class="siguiente" type="submit">Siguiente</button>
                 </div>
             </div>
         </div>
@@ -97,25 +97,25 @@ include_once("registrarse.php");
                     <h3 class="titulo">Verificar datos personales</h3>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Nombre</label>
-                        <input class="col-md-12" type="text" name="text">
+                        <input class="col-md-12" type="text" name="nombre">
                     </div>
 
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Apellido</label>
-                        <input class="col-md-12" type="text" name="text">
+                        <input class="col-md-12" type="text" name="apellido">
                     </div>
 
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Fecha de Nacimiento</label>
-                        <input class="col-md-12" type="date" name="text">
+                        <input class="col-md-12" type="date" name="fechaNacimiento">
                     </div>
 
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Número de Documento</label>
-                        <input class="col-md-12" type="number" name="text">
+                        <input class="col-md-12" type="number" name="Dni">
                     </div>
 
-                    <button class="siguiente" type="submit">Finalizar</button>
+                    <button class="siguiente" name="finalizar" type="submit">Finalizar</button>
                 </div>
             </div>
         </div>
