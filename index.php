@@ -42,15 +42,15 @@ include_once("registrarse.php");
 
                     <div class="password-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
-                        <input class="col-md-12" type="password" name="password">
+                        <input class="col-md-12"  id="password" type="password" name="password">
                     </div>
 
                     <div class="cpassword-container mt-2">
                         <label class="col-md-12" for="">Vuelva a ingresar su contraseña</label>
-                        <input class="col-md-12" type="password" name="cpassword">
+                        <input class="col-md-12" type="password" name="confirmpassword">
                     </div>
 
-                    <button class="siguiente" type="submit">Siguiente</button>
+                    <button class="siguiente" type="submit" id="Step1" >Siguiente</button>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@ include_once("registrarse.php");
                         <input class="col-md-12" type="number" name="Dni">
                     </div>
 
-                    <button class="siguiente" name="finalizar" type="submit">Finalizar</button>
+                    <button class="siguiente" name="finalizar" type="submit" disabled>Finalizar</button>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@ include_once("registrarse.php");
         </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
