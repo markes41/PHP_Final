@@ -46,5 +46,63 @@ jQuery(document).ready(function ($) {
     $('#volver').click(function () {
         $.fn.prevStep();
         $.fn.startSteps();
+     
     });
 });
+
+    $('document').ready(function() {         
+        $("#registrarse").validate({
+            rules:
+         {
+         nombre: {
+            required: true,
+         minlength: 3
+         },
+         password: {
+         required: true,
+         minlength: 6,
+         maxlength: 16
+         },
+         cpassword: {
+         required: true,
+         equalTo: '#password'
+         },
+         email: {
+                  required: true,
+                  email: true,
+         
+                 
+                  },
+          },
+         messages:
+          {
+                  password:{
+                            required: "Por favor ingrese la contraseña",
+                            minlength: "La contraseña no puede tener menos de 6 caracteres"
+                           },
+                    email: "Por favor ingrese un mail valido",
+            cpassword:{
+            requerido: "Por favor vuelva a reingresar su contraseña",
+            equalTo: "Las constraseñas no coinciden !"
+             }
+             },
+             errorElement : 'div',
+             errorPlacement: function(error, element) {
+                error.insertAfter(element)},
+
+          submitHandler: submitForm 
+             });  
+          function submitForm() {  
+          var data = $("#registrarse").serialize();    
+          debugger
+          $.ajax({    
+            type : 'POST',
+            url  : 'registrarse.php',
+            data : data,
+            success :  function(response) {  
+                
+                }
+            });
+            return false;
+          }
+        });
