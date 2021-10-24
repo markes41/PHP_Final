@@ -12,8 +12,6 @@ jQuery(document).ready(function($) {
             debugger
             if (!validar.form()) {
                 return;
-            } else {
-                validar.resetForm();
             }
             var div = $('#step-' + currentStep);
             var isFunction = div.attr('action-next');
