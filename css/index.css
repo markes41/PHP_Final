@@ -4,6 +4,7 @@ body {
     background-color: #EEEDEF;
 }
 
+
 body p{
     margin: 0;
 }
@@ -167,3 +168,5 @@ body p{
     color: #f4b434;
     cursor: pointer;
 }
+
+#email-error{ color: red; font-size: 0.8em; }

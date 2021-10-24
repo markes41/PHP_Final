@@ -46,6 +46,7 @@ jQuery(document).ready(function ($) {
     $('#volver').click(function () {
         $.fn.prevStep();
         $.fn.startSteps();
+     
     });
 });
 
@@ -64,29 +65,31 @@ jQuery(document).ready(function ($) {
          },
          cpassword: {
          required: true,
-         comparar: '#password'
+         equalTo: '#password'
          },
          email: {
                   required: true,
                   email: true,
-                  prueba: function(){
-                    $('.siguiente').attr('hidden');
-                  }
+         
                  
                   },
           },
-             messages:
+         messages:
           {
                   password:{
                             required: "Por favor ingrese la contraseña",
                             minlength: "La contraseña no puede tener menos de 6 caracteres"
                            },
                     email: "Por favor ingrese un mail valido",
-         cpassword:{
+            cpassword:{
             requerido: "Por favor vuelva a reingresar su contraseña",
-            comparar: "Las constraseñas no coinciden !"
+            equalTo: "Las constraseñas no coinciden !"
              }
              },
+             errorElement : 'div',
+             errorPlacement: function(error, element) {
+                error.insertAfter(element)},
+
           submitHandler: submitForm 
              });  
           function submitForm() {  
