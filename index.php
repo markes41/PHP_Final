@@ -74,9 +74,9 @@ include("registrarse.php");
                         <label class="col-md-12" for="">Código de verificación</label>
                         <input class="col-md-12" type="text" name="codigo" id="codigo">
                     </div>
-                    <button class="siguienteCodigo" type="submit" onclick="Codigo()">Validar codigo</button>
+                    <button class="siguienteCodigo" type="submit" id="validarCodigo" onclick="Codigo()">Validar codigo</button>
 
-                    <button class="siguiente" type="submit" id="siguiente" disabled>Siguiente</button>
+                    <button class="siguiente" type="submit" id="siguiente" disabled hidden>Siguiente</button>
                 </div>
             </div>
         </div>
@@ -129,6 +129,7 @@ include("registrarse.php");
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
 

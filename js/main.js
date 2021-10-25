@@ -2,26 +2,55 @@ var currentStep = 1;
 var primerStep = 1;
 var validar;
 var numeroRandom;
+var prueba = true;
 
 function StringIsNullOrEmpty(value) {
     return (!value || value == undefined || value == "" || value.length == 0);
 }
 
 function Codigo() {
-    debugger
     if (numeroRandom != undefined && currentStep == "2") {
         debugger
         var data = window.numeroRandom;
+        swal.fire({
+            title: 'Estamos validando el codigo ingresado'
+        });
+        swal.showLoading();
         $.ajax({
             type: 'POST',
             url: 'registrarse.php',
             data: data,
             success: function(response) {
+                swal.close();
                 var codigoIngresado = $('#codigo').val()
                 if (data == codigoIngresado) {
                     $('#siguiente').removeAttr('disabled');
+                    $('#siguiente').removeAttr('hidden');
+                    $('#validarCodigo').attr('hidden', 'hidden');
+                    Swal.fire(
+                        'Validado Correctamente',
+                        'Puede avanzar al siguiente paso!',
+                        'success'
+                    );
+
                 } else {
-                    return;
+                    if (prueba == true) {
+                        Swal.fire(
+                            'Modo de prueba',
+                            'El codigo es</br>' + data,
+                            'success'
+                        );
+                    } else {
+
+                        Swal.fire(
+                            'Validacion Incorrecta',
+                            'Por favor ingrese el codigo enviado al mail correctamente',
+                            'warning'
+                        )
+                        return;
+                    }
+
+
                 }
             }
         });
@@ -132,6 +161,7 @@ jQuery(document).ready(function($) {
         errorElement: 'div',
         errorPlacement: function(error, element) {
             error.insertAfter(element)
+            $("#nombre-error").css({ display: "none" });
         },
 
         submitHandler: submitForm
