@@ -1,5 +1,5 @@
 <?php
-include_once("registrarse.php");
+include("registrarse.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ include_once("registrarse.php");
                         <input class="col-md-12" type="password" name="confirmpassword">
                     </div>
 
-                    <button class="siguiente" type="submit" id="Step1" >Siguiente</button>
+                    <button class="siguiente" type="submit" name="enviarMail"  >Siguiente</button>
                 </div>
             </div>
         </div>
@@ -72,10 +72,11 @@ include_once("registrarse.php");
                     <h3 class="titulo">Validación de correo<br /> electrónico</h3>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Código de verificación</label>
-                        <input class="col-md-12" type="text" name="text">
+                        <input class="col-md-12" type="text" name="codigo" id="codigo">
                     </div>
+                    <button class="siguienteCodigo" type="submit" onclick="Codigo()">Validar codigo</button>
 
-                    <button class="siguiente" type="submit">Siguiente</button>
+                    <button class="siguiente" type="submit" id="siguiente" disabled>Siguiente</button>
                 </div>
             </div>
         </div>
@@ -133,4 +134,6 @@ include_once("registrarse.php");
 
 <script>
     AOS.init();
+    window.numeroRandom = "<?php echo $numeroRandom?>";
 </script>
+

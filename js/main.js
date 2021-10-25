@@ -1,10 +1,33 @@
 var currentStep = 1;
 var primerStep = 1;
 var validar;
+var numeroRandom;
 
 function StringIsNullOrEmpty(value) {
     return (!value || value == undefined || value == "" || value.length == 0);
 }
+
+function Codigo() {
+    debugger
+    if (numeroRandom != undefined && currentStep == "2") {
+        debugger
+        var data = window.numeroRandom;
+        $.ajax({
+            type: 'POST',
+            url: 'registrarse.php',
+            data: data,
+            success: function(response) {
+                var codigoIngresado = $('#codigo').val()
+                if (data == codigoIngresado) {
+                    $('#siguiente').removeAttr('disabled');
+                } else {
+                    return;
+                }
+            }
+        });
+    }
+}
+
 
 jQuery(document).ready(function($) {
     $.extend($.fn, {
