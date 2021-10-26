@@ -50,7 +50,7 @@ include("registrarse.php");
                         <input class="col-md-12" type="password" name="confirmpassword">
                     </div>
 
-                    <button class="siguiente" type="submit" name="enviarMail"  >Siguiente</button>
+                    <button class="siguiente" type="submit" name="enviarMail" >Siguiente</button>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@ include("registrarse.php");
                         <input class="col-md-12" type="number" name="Dni">
                     </div>
 
-                    <button class="siguiente" name="finalizar" type="submit" disabled>Finalizar</button>
+                    <button class="siguiente" name="finalizar" type="submit">Finalizar</button>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@ include("registrarse.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="js/jquery-validate.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

@@ -161,7 +161,6 @@ jQuery(document).ready(function($) {
         errorElement: 'div',
         errorPlacement: function(error, element) {
             error.insertAfter(element)
-            $("#nombre-error").css({ display: "none" });
         },
 
         submitHandler: submitForm
