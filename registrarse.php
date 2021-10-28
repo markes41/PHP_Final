@@ -1,5 +1,14 @@
 <?php
 include_once("conexion.php");
+$numeroRandom = rand(100000, 999999) ;
+if(isset($_POST['enviarMail'])){
+   $to      = $_POST['email'];
+   $subject = "Correo de Confirmacion";
+   $message = "Hola ingresa el codigo. $numeroRandom . para validar su mail";
+   $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+mail($to, $subject, $message, $headers);
+}
 if(isset($_POST['finalizar'])) {
 	$mail = $_POST['email'];
 	$sql = "SELECT Email FROM usuarios WHERE Email='$mail'";
@@ -31,3 +40,4 @@ if(isset($_POST['finalizar'])) {
 		}
 }
 ?>
+
