@@ -17,17 +17,18 @@ if(isset($_POST['finalizar'])) {
 	$row = $stmt->get_result();	
 	$row = $row->num_rows;	
 	if($row == 0){	
-		$sql = "INSERT INTO usuarios (Email, Password, Nombre, Apellido, Fecha_Nacimiento, Dni ) 
-		VALUES (?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO usuarios (Email, Password, Nombre, Apellido, Fecha_Nacimiento, Dni, Username ) 
+		VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$stmt=$conectar->prepare($sql);
 		if ($stmt){
-			$stmt->bind_param('ssssss', $mail, $contrasenia, $nombre, $apellido, $fechaNacimiento, $Dni);
+			$stmt->bind_param('sssssss', $mail, $contrasenia, $nombre, $apellido, $fechaNacimiento, $Dni, $usuario);
 			$mail = $_POST['email'];
 			$contrasenia = $_POST['password'];
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$fechaNacimiento = $_POST['fechaNacimiento'];
 			$Dni = $_POST['Dni'];
+			$usuario = $_POST['usuario'];
 			$crearUsuario=$stmt->execute();
 			if($crearUsuario){
 				echo 'creado';

@@ -65,7 +65,7 @@ include('session.php');
                         <?php endif; ?>
                         <?php if($_SESSION['login_user'] == "marcioabriola@gmail.com"): ?>
                             <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="login.php">Marcio Abriola</a>
+                            <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
 
                         <li class="nav-item">
