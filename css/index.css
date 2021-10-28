@@ -196,3 +196,33 @@ body p{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.producto-input{
+    display: block;
+    color: #4B4B4B;
+}
+
+.producto-input input, .producto-input textarea{
+    width: 100%;
+    height: 35px;
+    background: #FFFFFF;
+    border: 2px solid #CECDCF;
+    box-sizing: border-box;
+}
+
+.aceptar, .cancelar{
+    width: 100px;
+    height: 35px;
+    background: #8800FF;
+    color: #fff;
+    font-size: 15px;
+    line-height: 33px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.cancelar{
+    background-color: #c91313 !important;
+}
