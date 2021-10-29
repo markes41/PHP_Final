@@ -4,22 +4,7 @@
 if(!isset($_POST["titulo"]) || !isset($_POST["descripcion"]) || !isset($_POST["categoria"]) || !isset($_POST["precioUnitario"]) || !isset($_POST["imagen"]) || !isset($_POST["cantidad"])) exit();
 
 #Si todo va bien, se ejecuta esta parte del código...
-
-// esto despues se importa con un include
-$hostname = "localhost";
-$db_user = "root";
-$db_pass= "";
-$db_name = "phpfinal";
-
-
-$conectar = new mysqli($hostname, $db_user, $db_pass, $db_name);
-
-
-if($conectar->connect_errno){
-    printf("Fallo la conexion:", $conectar->connect_error);
-    exit();
-}
-
+include('./inc/conexion.php');
 
 $titulo = $_POST["titulo"];
 $descripcion = $_POST["descripcion"];
