@@ -1,123 +1,20 @@
+//#region Variables
 var currentStep = 1;
 var primerStep = 1;
 var validar;
 var numeroRandom;
 var numeroRandomRecuperar;
 var prueba = false;
+//#endregion
 
-function StringIsNullOrEmpty(value) {
-    return (!value || value == undefined || value == "" || value.length == 0);
-}
-
-function Codigo() {
-    if (numeroRandom != undefined && currentStep == "2") {
-        debugger
-        var data = window.numeroRandom;
-        swal.fire({
-            title: 'Estamos validando el codigo ingresado'
-        });
-        swal.showLoading();
-        $.ajax({
-            type: 'POST',
-            url: 'registrarse.php',
-            data: data,
-            success: function(response) {
-                swal.close();
-                var codigoIngresado = $('#codigo').val()
-                if (data == codigoIngresado) {
-                    $('#siguiente').removeAttr('disabled');
-                    $('#siguiente').removeAttr('hidden');
-                    $('#validarCodigo').attr('hidden', 'hidden');
-                    Swal.fire(
-                        'Validado Correctamente',
-                        'Puede avanzar al siguiente paso!',
-                        'success'
-                    );
-
-                } else {
-                    if (prueba == true) {
-                        Swal.fire(
-                            'Modo de prueba',
-                            'El codigo es</br>' + data,
-                            'success'
-                        );
-                    } else {
-
-                        Swal.fire(
-                            'Validacion Incorrecta',
-                            'Por favor ingrese el codigo enviado al mail correctamente',
-                            'warning'
-                        )
-                        return;
-                    }
-
-
-                }
-            }
-        });
-    }
-}
-
-function CodigoRecuperacion() {
-    debugger
-    if (currentStep == "2") {
-        debugger
-        var data = $("#logicarecuperar").serialize();
-        swal.fire({
-            title: 'Estamos validando el codigo ingresado'
-        });
-        swal.showLoading();
-        $.ajax({
-            type: 'POST',
-            url: 'logicarecuperar.php',
-            data: data,
-            success: function(response) {
-                debugger
-                swal.close();
-                if (response == $('#codigo_recuperacion').val()) {
-                    $('#siguiente').removeAttr('disabled');
-                    $('#siguiente').removeAttr('hidden');
-                    $('#validarCodigo_Recuperacion').attr('hidden', 'hidden');
-                    Swal.fire(
-                        'Validado Correctamente',
-                        'Puede avanzar al siguiente paso!',
-                        'success'
-                    );
-
-                } else {
-                    if (prueba == true) {
-                        Swal.fire(
-                            'Modo de prueba',
-                            'El codigo es</br>' + data,
-                            'success'
-                        );
-                    } else {
-
-                        Swal.fire(
-                            'Validacion Incorrecta',
-                            'Por favor ingrese el codigo enviado al mail correctamente',
-                            'warning'
-                        )
-                        return;
-                    }
-
-                }
-            }
-        });
-    }
-}
-
-
-
-
-
+//#region Steps
 jQuery(document).ready(function($) {
     $.extend($.fn, {
         nextStep: function(param) {
-            if(validar != undefined) {
-            if (!validar.form()) {
-                return;
-            }
+            if (validar != undefined) {
+                if (!validar.form()) {
+                    return;
+                }
             }
 
             var div = $('#step-' + currentStep);
@@ -161,7 +58,12 @@ jQuery(document).ready(function($) {
 
     });
 
-    //Validaciones
+});
+
+//#endregion
+
+//#region Validaciones
+$(document).ready(function() {
     validar = $("#registrarse").validate({
         rules: {
             nombre: {
@@ -229,7 +131,7 @@ jQuery(document).ready(function($) {
             },
         },
         messages: {
-            
+
             email: "Por favor ingrese un mail valido",
         },
         errorElement: 'div',
@@ -239,33 +141,148 @@ jQuery(document).ready(function($) {
 
         submitHandler: logicaForm
     });
+});
+//#endregion
 
-    function logicaForm() {
-        var data = $("#logicarecuperar").serialize();
+//#region  Funciones
+
+function StringIsNullOrEmpty(value) {
+    return (!value || value == undefined || value == "" || value.length == 0);
+}
+
+function Codigo() {
+    if (numeroRandom != undefined && currentStep == "2") {
         debugger
-        $.ajax({
-            type: 'POST',
-            url: 'logicarecuperar.php',
-            data: data,
-            success: function(response) {
-               
-            }
+        var data = window.numeroRandom;
+        swal.fire({
+            title: 'Estamos validando el codigo ingresado'
         });
-        return false;
-    }
-
-
-    function submitForm() {
-        var data = $("#registrarse").serialize();
-        debugger
+        swal.showLoading();
         $.ajax({
             type: 'POST',
             url: 'registrarse.php',
             data: data,
             success: function(response) {
-             
+                swal.close();
+                var codigoIngresado = $('#codigo').val()
+                if (data == codigoIngresado) {
+                    $('#siguiente').removeAttr('disabled');
+                    $('#siguiente').removeAttr('hidden');
+                    $('#validarCodigo').attr('hidden', 'hidden');
+                    Swal.fire(
+                        'Validado Correctamente',
+                        'Puede avanzar al siguiente paso!',
+                        'success'
+                    );
+
+                } else {
+                    if (prueba == true) {
+                        Swal.fire(
+                            'Modo de prueba',
+                            'El codigo es</br>' + data,
+                            'success'
+                        );
+                    } else {
+
+                        Swal.fire(
+                            'Validacion Incorrecta',
+                            'Por favor ingrese el codigo enviado al mail correctamente',
+                            'warning'
+                        )
+                        return;
+                    }
+
+
+                }
             }
         });
-        return false;
     }
-});
+}
+
+function CodigoRecuperacion() {
+    debugger
+    if (currentStep == "2") {
+        debugger
+        swal.fire({
+            title: 'Estamos validando el codigo ingresado'
+        });
+        swal.showLoading();
+        $.ajax({
+            type: 'POST',
+            url: 'logicarecuperar.php',
+            dataType: "text",
+            success: function(response) {
+                debugger
+                console.log(response)
+                swal.close();
+                if (response == $('#codigo_recuperacion').val()) {
+                    $('#siguiente').removeAttr('disabled');
+                    $('#siguiente').removeAttr('hidden');
+                    $('#validarCodigo_Recuperacion').attr('hidden', 'hidden');
+                    Swal.fire(
+                        'Validado Correctamente',
+                        'Puede avanzar al siguiente paso!',
+                        'success'
+                    );
+
+                } else {
+                    if (prueba == true) {
+                        Swal.fire(
+                            'Modo de prueba',
+                            'El codigo es</br>' + data,
+                            'success'
+                        );
+                    } else {
+
+                        Swal.fire(
+                            'Validacion Incorrecta',
+                            'Por favor ingrese el codigo enviado al mail correctamente',
+                            'warning'
+                        )
+                        return;
+                    }
+
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    }
+}
+
+
+function logicaForm() {
+    debugger
+    $.ajax({
+        type: 'POST',
+        url: 'logicarecuperar.php',
+        dataType: "text",
+        success: function(response) {
+            debugger
+            console.log(response);
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+    return false;
+}
+
+
+function submitForm() {
+    debugger
+    $.ajax({
+        type: 'POST',
+        url: 'registrarse.php',
+        dataType: "text",
+        success: function(response) {
+
+        }
+    });
+    return false;
+}
+
+//#endregion
