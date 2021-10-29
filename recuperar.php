@@ -1,5 +1,5 @@
 <?php
-include_once("logicarecuperar.php");
+include_once("clases/recuperar_logica.php");
 ?>
 
 <!DOCTYPE html>
@@ -74,14 +74,13 @@ include_once("logicarecuperar.php");
                         <input class="col-md-12" type="text" name="codigo_recuperacion" id="codigo_recuperacion">
                     </div>
 
-                    <button class="siguienteCodigo" type="submit" onclick="CodigoRecuperacion()" >Siguiente</button>
-                    <button class="siguiente" type="submit" id="siguiente" disabled hidden>Siguiente</button>
+                    <button class="siguienteCodigo" type="submit" name="validarCodigo_Recuperacion" onclick="CodigoRecuperacion()" >Validar</button>
+                    <button class="siguiente" type="submit" hidden disabled >Siguiente</button>
                 </div>
             </div>
         </div>
 
         <!----------------------------------------------------FIN N° 2---------------------------------------------------->
-        <!----------------------------------------------------STEP N° 3---------------------------------------------------->
         <!----------------------------------------------------STEP N° 3---------------------------------------------------->
         <div id="step-3" class="d-flex display-important" data-aos="fade-up" data-aos-duration="1500">
             <div class="step-left-background col-md-6 ">
@@ -116,15 +115,9 @@ include_once("logicarecuperar.php");
         </form>
     </div>
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery-validate.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-</body>
-</html>
+    <?php 
+    include('inc/footer.php');
+?>
 
 <script>
     AOS.init();

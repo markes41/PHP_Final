@@ -1,10 +1,7 @@
 <?php
+include("./inc/conexion.php");
 $numeroSql = '';
-$destino = "";
-include_once("conexion.php");
 $numeroRandomRecuperar = rand(100000, 999999);
-
-//$numeroSql= "SELECT Codigo_Recuperacion FROM usuarios WHERE Codigo_Recuperacion='$numeroRandomRecuperar'";
 
 if(isset($_POST['enviarMail_recuperar'])){
 
@@ -12,21 +9,17 @@ $destino = $_POST["email"];
 $nombre = $_POST["usuario"];
 $contenido = "Tu codigo de confirmacion es: " .$numeroRandomRecuperar;
 
-	$sql = "SELECT Email FROM usuarios WHERE Email='$destino'";
+	$sql = "SELECT Email FROM usuarios WHERE Email='$destino' and UserName='$nombre'";
 	$stmt=$conectar->prepare($sql);
 	$stmt->execute();
 	$row = $stmt->get_result();	
 	$row = $row->num_rows;	
 	$stmt->close();
+	echo "";
 	if($row == 0){	
-
 		return;
 	} else {
-
-		//Prueba 1
 		$sSQL="UPDATE usuarios SET Codigo_Recuperacion = ? Where Email= ?";
-
-		//Prueba 
 		$stmt=$conectar->prepare($sSQL);
 		$stmt->bind_param('is', $numeroRandomRecuperar, $destino);
 		$ejecuto = $stmt->execute();
@@ -35,16 +28,18 @@ $contenido = "Tu codigo de confirmacion es: " .$numeroRandomRecuperar;
 		}
 
 	}
-	if(isset($_POST['CodigoRecuperacion'])){
+	if(isset($_POST['validarCodigo_Recuperacion'])){
+	$destino = $_POST["email"];
 	$numeroSql = "SELECT Codigo_Recuperacion FROM usuarios WHERE Email='$destino'";
 	$stmt=$conectar->prepare($numeroSql);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		$row = $result->fetch_assoc();
-        echo $row['Codigo_Recuperacion'];
-		
+		$to_return[] = $row;
+		$ret_val = json_encode(array("data" => $to_return));
+		echo "";
 		$stmt->close();
-
+		
 	}
 
 

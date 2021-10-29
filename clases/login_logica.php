@@ -1,5 +1,5 @@
 <?php
-include_once("conexion.php");
+include("./inc/conexion.php");
 session_start();
 if(isset($_POST['IniciarSesion'])) {
 	$mail = $_POST['email'];

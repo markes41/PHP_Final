@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+include('./clases/session_logica.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ include('session.php');
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
         <div class="container-fluid col-md-4">
-            <a class="navbar-brand" href="#"><img src="imagenes/logo.png" style="width: 150px" /></a>
+            <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 150px" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

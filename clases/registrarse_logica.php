@@ -1,5 +1,5 @@
 <?php
-include_once("conexion.php");
+include("./inc/conexion.php");
 $numeroRandom = rand(100000, 999999) ;
 if(isset($_POST['enviarMail'])){
    $to      = $_POST['email'];

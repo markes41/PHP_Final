@@ -1,5 +1,5 @@
 <?php
-   include('conexion.php');
+   include('./inc/conexion.php');
    session_start();
    
    $checkMail = $_SESSION['login_user'];

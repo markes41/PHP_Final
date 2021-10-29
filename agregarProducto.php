@@ -1,5 +1,5 @@
 <?php 
-    include('includes/header.php');
+    include('inc/header.php');
 ?>
 
 <div class="col-xs-12">
@@ -27,5 +27,5 @@
 </div>
 
 <?php 
-    include('includes/footer.php');
+    include('inc/footer.php');
 ?>

@@ -1,6 +1,5 @@
-
 <?php
-    include('includes/header.php');
+    include('inc/header.php');
     include('productoDatabase/obtenerProductos.php');
 ?>
 
@@ -13,16 +12,16 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="imagenes/promo1.webp" class="d-block w-100" alt="...">
+                <img src="img/promo1.webp" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="imagenes/promo2.webp" class="d-block w-100" alt="...">
+                <img src="img/promo2.webp" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="imagenes/promo4.webp" class="d-block w-100" alt="...">
+                <img src="img/promo4.webp" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="imagenes/promo5.webp" class="d-block w-100" alt="...">
+                <img src="img/promo5.webp" class="d-block w-100" alt="...">
             </div>
 
         </div>
@@ -43,7 +42,7 @@
         <div class="row">
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/iphone.jpg" />
+                    <img src="img/iphone.jpg" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -57,7 +56,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/webcam.jpg" />
+                    <img src="img/webcam.jpg" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -71,7 +70,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/tv.jpg" />
+                    <img src="img/tv.jpg" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -85,7 +84,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/parlantes.jpg" />
+                    <img src="img/parlantes.jpg" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -106,7 +105,7 @@
         <div class="row">
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/herramienta1.webp" />
+                    <img src="img/herramienta1.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -120,7 +119,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/herramienta2.webp" />
+                    <img src="img/herramienta2.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -134,7 +133,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/herramienta3.webp" />
+                    <img src="img/herramienta3.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -148,7 +147,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/herramienta4.webp" />
+                    <img src="img/herramienta4.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -169,7 +168,7 @@
         <div class="row">
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/lavarropas.webp" />
+                    <img src="img/lavarropas.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -183,7 +182,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/aire.webp" />
+                    <img src="img/aire.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -197,7 +196,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/heladera.webp" />
+                    <img src="img/heladera.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -211,7 +210,7 @@
 
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="imagenes/pava.webp" />
+                    <img src="img/pava.webp" />
                 </div>
                 <hr class="" />
                 <div class="card-body">
@@ -227,5 +226,5 @@
     <!---------------------------FIN ELECTRODOMESTICOS---------------------------------->
 
 <?php  
-    include('includes/footer.php');
+    include('inc/footer.php');
 ?>

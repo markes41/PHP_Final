@@ -1,19 +1,5 @@
 <?php 
-    
-// esto despues se importa con un include
-    $hostname = "localhost";
-    $db_user = "root";
-    $db_pass= "";
-    $db_name = "phpfinal";
-
-
-    $conectar = new mysqli($hostname, $db_user, $db_pass, $db_name);
-
-
-    if($conectar->connect_errno){
-        printf("Fallo la conexion:", $conectar->connect_error);
-        exit();
-    }
+    include('./inc/conexion.php');
 
     $sentencia = $conectar->prepare("SELECT * FROM productos ");
     // $sentencia->bind_param('dssibis', $precioUnitario, $descripcion, $titulo, $cantidad, $imagen, $cant_ventas, $categoria);
