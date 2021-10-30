@@ -20,7 +20,7 @@ while ($row = $result->fetch_assoc()) {
    }
 }else
 {
-    header("location:index.php");
+    header("location:login.php");
     die();
 }
 ?>
