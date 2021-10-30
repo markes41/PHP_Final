@@ -16,69 +16,69 @@ include('./clases/session_logica.php');
     <script src="https://kit.fontawesome.com/46e18bb4ff.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index.css">
 
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-        <div class="container-fluid col-md-4">
-            <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 150px" /></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <?php if($_SESSION['login_user'] == null): ?>
-                 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Productos</a>
-                    </li>
-                           
-                    <?php endif; ?>
-
-                   
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <form class="d-flex col-md-12">
-                <input class="form-control me-2 col-md-10 w-100" type="search" placeholder="Buscar productos, marcas y m&aacute;s..." aria-label="Search">
-                <button class="btn btnBuscar col-md-2" style="width: 50px" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-
-        <div class="col-md-4 ">
-            <div class="d-flex">
-                <div class="" style="margin-left: auto; margin-right: 0;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+            <div class="container-fluid col-md-4">
+                <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 150px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <?php if($_SESSION['login_user'] == null): ?>
+                        <?php if($_SESSION['login_user'] == null): ?>
+                     
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
-
+    
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="registrar.php">Registrarse</a>
+                            <a class="nav-link active" aria-current="page" href="#">Productos</a>
                         </li>
+                               
                         <?php endif; ?>
-                        <?php if($_SESSION['login_user'] == "marcioabriola@gmail.com"): ?>
-                            <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"></a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="agregarProducto.php">Agregar Producto</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="registrar.php">Cerrar Sesion</a>
-                        </li>
-                        
-                     <?php endif; ?>
+    
+                       
                     </ul>
                 </div>
             </div>
-        </div>
-    </nav>
+    
+            <div class="col-md-4">
+                <form class="d-flex col-md-12">
+                    <input class="form-control me-2 col-md-10 w-100" type="search" placeholder="Buscar productos, marcas y m&aacute;s..." aria-label="Search">
+                    <button class="btn btnBuscar col-md-2" style="width: 50px" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+    
+            <div class="col-md-4 ">
+                <div class="d-flex">
+                    <div class="" style="margin-left: auto; margin-right: 0;">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <?php if($_SESSION['login_user'] == null): ?>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="registrar.php">Registrarse</a>
+                            </li>
+                            <?php endif; ?>
+                            <?php if($_SESSION['login_user'] == "marcioabriola@gmail.com"): ?>
+                                <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"></a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="agregarProducto.php">Agregar Producto</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="registrar.php">Cerrar Sesion</a>
+                            </li>
+                            
+                         <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+</head>
+<body>

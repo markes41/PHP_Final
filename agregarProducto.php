@@ -4,7 +4,7 @@
 
 <div class="col-xs-12">
 	<h1>Nuevo producto</h1>
-	<form method="post" action="productoDatabase/nuevoProducto.php">
+	<form method="POST" action="productoDatabase/nuevoProducto.php" enctype="multipart/form-data">
 		<label for="titulo">Titulo:</label>
 		<input class="form-control" name="titulo" required type="text" id="titulo" placeholder="Escribe el titulo">
 
@@ -18,7 +18,7 @@
 		<input class="form-control" name="precioUnitario" required type="number" id="precioUnitario" placeholder="Precio de venta">
 
 		<label for="imagen">Imagen:</label>
-		<input class="form-control" name="imagen" required type="file" id="imagen" placeholder="Imagen">
+		<input class="form-control" name="imagen" required type="file" id="imagen" accept="image/*">
 
 		<label for="cantidad">Cantidad:</label>
 		<input class="form-control" name="cantidad" min=0 required type="number" id="cantidad" placeholder="Cantidad o existencia">
