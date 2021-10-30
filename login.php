@@ -46,7 +46,7 @@
                     <div class="password-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
                         <input class="col-md-12"  id="password" type="password" name="passwordLogin">
-                        <div class="col-md-12"> <a href="#">Olvidate la contraseña?</a></div>
+                        <div class="col-md-12"> <a href="recuperar.php">Olvidate la contraseña?</a></div>
                        
                     </div>
                     <button class="siguienteCodigo" type="submit" name="IniciarSesion" >Iniciar Sesion</button>
