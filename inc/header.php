@@ -18,7 +18,7 @@ include('./clases/session_logica.php');
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
             <div class="container-fluid col-md-4">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 150px" /></a>
+                <a class="navbar-brand" href="index.php"><img src="img/logo.png" style="width: 150px"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,26 +52,18 @@ include('./clases/session_logica.php');
                 <div class="d-flex">
                     <div class="" style="margin-left: auto; margin-right: 0;">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <?php if($_SESSION['login_user'] == null): ?>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
-                            </li>
-    
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="registrar.php">Registrarse</a>
-                            </li>
-                            <?php endif; ?>
-                            <?php if($_SESSION['login_user'] == "marcioabriola@gmail.com"): ?>
-                                <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"></a>
-                            </li>
+                        <?php if($_SESSION['login_user'] != ""): ?>
     
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="agregarProducto.php">Agregar Producto</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><?php echo $username; ?></a>
+                            </li>
     
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="registrar.php">Cerrar Sesion</a>
+                                <a class="nav-link active" aria-current="page" href="./clases/logout.php">Cerrar Sesion</a>
                             </li>
                             
                          <?php endif; ?>

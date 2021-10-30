@@ -35,6 +35,7 @@ include("clases/registrarse_logica.php");
             <div class="col-md-6" style="margin:auto;" data-aos="fade-down" data-aos-duration="1500">
                 <div class="step-right-container text-center" >
                     <h3 class="titulo">Crear una cuenta en <br>Crypto Lomas</h3>
+                    <div class="col-md-12"> <a href="login.php">Ya tienes una cuenta?</a></div>
 
                     <div class="usuario-container mt-2">
                         <label class="col-md-12" for="">Nombre de usuario</label>

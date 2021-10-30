@@ -49,6 +49,7 @@
                        
                     </div>
                     <button class="siguienteCodigo" type="submit" name="IniciarSesion" >Iniciar Sesion</button>
+                    <div class="col-md-12"> <a href="registrar.php">No tienes una cuenta?</a></div>
                 </div>
             </div>
         </div>
