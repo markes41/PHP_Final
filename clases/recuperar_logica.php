@@ -45,6 +45,24 @@ $sql = "SELECT Email FROM usuarios WHERE Email='$destino' and UserName='$nombre'
 		
 	}
 
+	if(isset($_POST['cambiar_contra'])){
+		$pass_nueva = md5($_POST["password"]);
+		$user = $_POST["usuario"];
+
+		$sSQL="UPDATE usuarios SET Password = ? Where UserName= ?";
+		$stmt=$conectar->prepare($sSQL);
+		$stmt->bind_param('ss', $pass_nueva, $user);
+		$ejecuto = $stmt->execute();
+		$stmt->close();
+		if($ejecuto){
+		$jsondata['cambio'] = "La contraseña ha sido cambiada con exito.";
+		$jsondata['retorno'] = true;
+		} else {
+		$jsondata['cambio'] = "Ha ocurrido un error al cambiar la contraseña, avisar a sistemas.";
+		$jsondata['retorno'] = false;
+		}
+		echo json_encode($jsondata);
+	}
 
 ?>
 

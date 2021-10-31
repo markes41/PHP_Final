@@ -107,7 +107,7 @@ include_once("clases/recuperar_logica.php");
                         <input class="col-md-12" type="password" name="confirmpassword">
                     </div>
 
-                    <button class="siguiente" type="submit">Finalizar</button>
+                    <button class="siguiente" name="cambiar_contra" type="submit">Finalizar</button>
                 
                 </div>
             </div>

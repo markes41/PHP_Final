@@ -255,7 +255,7 @@ function logicaForm() {
                 $('#credencialesRecuperar').append('<p style="color:red">' + response.error + '</p>');
 
             }
-            if (response.numero != "") {
+            if (response.numero != undefined) {
                 if (response.numero.Codigo_Recuperacion == $('#codigo_recuperacion').val()) {
                     $('#siguiente').removeAttr('disabled');
                     $('#siguiente').removeAttr('hidden');
@@ -270,6 +270,30 @@ function logicaForm() {
                     Swal.fire(
                         'Validacion Incorrecta',
                         'Por favor ingrese el codigo enviado al mail correctamente',
+                        'warning'
+                    )
+                    return;
+                }
+            }
+
+            if (response.cambio != undefined) {
+                if (response.retorno) {
+                    Swal.fire({
+                        title: 'Cambio de contraseña',
+                        text: response.cambio,
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Continuar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $(location).attr('href', 'https://localhost/PHP_Final/login.php');
+                        }
+                    });
+                } else {
+                    Swal.fire(
+                        'Validacion Incorrecta',
+                        response.cambio,
                         'warning'
                     )
                     return;
