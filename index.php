@@ -37,28 +37,31 @@
 
     
     <!---------------------------PRODUCTOS ---------------------------------->
-
-    <div class="row">
-        <?php 
+    <div class="container mt-5">
+        <h3 style="margin-top: 3rem;">Todos los productos</h3>
+        <div class="row">
+            <?php 
             foreach ($results as $prod){
-        ?>
+                $_SESSION['img_convertida'] = $prod['Imagen'];
+                ?>
             <div class="card-productos col-md-4">
                 <div class="producto-img-container d-flex align-items-center">
-                    <img src="img/iphone.jpg" />
+                    <img id="productos_imagenes" src="<?php echo $prod["Imagen"]?>"  />
                 </div>
                 <hr class="" />
                 <div class="card-body">
                     <p class="titulo-producto m-1" title="iPhone 12 Pro Max 256gb Vs. Colores Caja Sellada Gtía Apple"><?php echo $prod["Titulo"] ?></p>
                     <div class="d-flex align-items-center ">
                         <p class="precio m-1">$<?php echo $prod["Precio_Unitario"] ?></p>
-                        <a role="button" href="editarProducto.php?edit=<?php echo $prod['Id']; ?>" class="btn btn-warning">Editar</a>
-                        <a role="button" href="eliminarProducto.php?eliminar=<?php echo $prod['Id']; ?>" class="btn btn-danger">Eliminar</a>
+                        <a role="button" style="margin: 0 10px;color: #ffae19;" href="editarProducto.php?edit=<?php echo $prod['Id']; ?>" class="text-decoration-none"> <i class="far fa-edit" style="margin-right: 5px;"></i>Editar</a>
+                        <a role="button" style="color: #ff1d1d;" href="eliminarProducto.php?eliminar=<?php echo $prod['Id']; ?>" class="text-decoration-none"> <i class="far fa-trash-alt" style="margin-right: 5px;"></i>Eliminar</a>
                     </div>
                 </div>
             </div>
-
-        <?php } ?>
-        
+            
+            <?php } ?>
+            
+        </div>
     </div>
 
 <?php  
@@ -66,4 +69,5 @@
 ?>
 <script>
     AOS.init();
+    
 </script>

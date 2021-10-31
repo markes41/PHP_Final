@@ -47,11 +47,15 @@
                     <div class="password-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
                         <input class="col-md-12"  id="password" type="password" name="passwordLogin">
-                        <div class="col-md-12"> <a href="recuperar.php">Olvidaste la contraseña?</a></div>
                        
                     </div>
                     <button class="siguienteCodigo" type="submit" name="IniciarSesion" >Iniciar Sesion</button>
-                    <div class="col-md-12"> <a href="registrar.php">No tienes una cuenta?</a></div>
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div class="col-md-12"> <a href="recuperar.php">Olvidaste la contraseña?</a></div>
+                            <div class="col-md-12"> <a href="registrar.php">No tienes una cuenta?</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

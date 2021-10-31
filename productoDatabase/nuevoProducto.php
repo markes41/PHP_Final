@@ -1,7 +1,5 @@
 
 <?php
-
-
 #Salir si alguno de los datos no está presente
 if(!isset($_POST["titulo"]) || !isset($_POST["descripcion"]) || !isset($_POST["categoria"]) || !isset($_POST["precioUnitario"]) || !isset($_FILES["imagen"]) || !isset($_POST["cantidad"])) exit();
 
@@ -29,7 +27,7 @@ $foto_name= $_FILES["imagen"]["name"];
  
 /* Anteponemos "\" a las comillas que pudiera contener el fichero para evitar que sean interpretadas como final de cadena.*/
    $foto_reconvertida = base64_encode($foto_reconvertida);
- 
+   
 //cerrar el fichero temporal
   fclose($f1);
 
@@ -41,13 +39,13 @@ $data = file_get_contents($_FILES["imagen"]["tmp_name"]);
  
 // Decodificando la imagen en base64
 // $base64 = 'data:' . $type . ';base64,' . base64_encode($data);
-$base64 = 'data:' . $type . ';base64' . base64_encode($data);
+$base64 = 'data:' . $type . ';base64,' . $foto_reconvertida;
 
 $cantidad = $_POST["cantidad"];
 $cant_ventas = 0;
 
 $sentencia = $conectar->prepare("INSERT INTO productos(Precio_Unitario, Descripcion, Titulo, Cantidad, Imagen, Cantidad_Ventas, Categoria) VALUES (?, ?, ?, ?, ?, ?, ?);");
-$sentencia->bind_param('dssibis', $precioUnitario, $descripcion, $titulo, $cantidad, $foto_reconvertida, $cant_ventas, $categoria);
+$sentencia->bind_param('dssisis', $precioUnitario, $descripcion, $titulo, $cantidad, $base64, $cant_ventas, $categoria);
 $resultado = $sentencia->execute();
 
 if($resultado === TRUE){
@@ -55,6 +53,4 @@ if($resultado === TRUE){
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista";
-
-
 ?>

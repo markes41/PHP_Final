@@ -149,7 +149,7 @@ body p {
     background: #fff;
     transition: linear .2s;
     width: 312px;
-    height: 390px;
+    height: 410px;
     margin: .50rem;
     transition: linear .2s;
     padding: 0;
@@ -294,4 +294,12 @@ footer {
     background-color: #8800FF;
     height: 10vh;
     color: #fff;
+}
+
+.btn-warning {
+    color: #fff !important;
+}
+
+.precio {
+    color: #37bd4e;
 }
