@@ -19,11 +19,11 @@ if(isset($_POST['finalizar'])) {
 	$row = $stmt->get_result();	
 	$row = $row->num_rows;	
 	if($row == 0){	
-		$sql = "INSERT INTO usuarios (Email, Password, Nombre, Apellido, Fecha_Nacimiento, Dni, Username ) 
-		VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO usuarios (Email, Password, Nombre, Apellido, Fecha_Nacimiento, Dni, Username, Rol ) 
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		$stmt=$conectar->prepare($sql);
 		if ($stmt){
-			$stmt->bind_param('sssssss', $mail, $contrasenia, $nombre, $apellido, $fechaNacimiento, $Dni, $usuario);
+			$stmt->bind_param('ssssssss', $mail, $contrasenia, $nombre, $apellido, $fechaNacimiento, $Dni, $usuario, $combobox);
 			$mail = $_POST['email'];
 			$contrasenia = md5($_POST['password']);
 			$nombre = $_POST['nombre'];
@@ -31,6 +31,7 @@ if(isset($_POST['finalizar'])) {
 			$fechaNacimiento = $_POST['fechaNacimiento'];
 			$Dni = $_POST['Dni'];
 			$usuario = $_POST['usuario'];
+			$combobox = $_POST['combobox'];
 			$crearUsuario=$stmt->execute();
 			$stmt->close();
 			if($crearUsuario){

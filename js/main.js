@@ -96,6 +96,12 @@ $(document).ready(function() {
             },
             fechaNacimiento: {
                 required: true,
+            },
+            usuario: {
+                required: true,
+            },
+            combobox: {
+                required: true,
             }
         },
         messages: {
@@ -119,6 +125,12 @@ $(document).ready(function() {
             },
             fechaNacimiento: {
                 required: "Por favor ingresa tu fecha de nacimiento"
+            },
+            usuario: {
+                required: "Por favor ingrese un usuario",
+            },
+            combobox: {
+                required: "Por favor ingrese un rol",
             }
         },
         errorElement: 'div',

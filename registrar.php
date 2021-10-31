@@ -40,12 +40,21 @@ require_once(__DIR__.'./clases/registrarse_logica.php');
 
                     <div class="usuario-container mt-2">
                         <label class="col-md-12" for="">Nombre de usuario</label>
-                        <input class="col-md-12" type="usuario" name="usuario">
+                        <input class="col-md-12" type="text" name="usuario">
                     </div>
 
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Correo electrónico</label>
                         <input class="col-md-12" type="email" name="email">
+                    </div>
+
+                    <div class="rol-container mt-2">
+                        <label class="col-md-12" for="">Rol</label>
+                        <select class="col-md-5 Rol-container" name="combobox" style="text-align: center;">
+                            <option value="" selected disabled hidden>---Seleccionar---</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Usuario">Usuario</option> 
+                        </select>
                     </div>
 
                     <div class="password-container mt-2">

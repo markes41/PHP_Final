@@ -32,6 +32,14 @@ body p {
     color: #4B4B4B;
 }
 
+.Rol-container {
+    width: 370px;
+    height: 35px;
+    background: #FFFFFF;
+    border: 2px solid #CECDCF;
+    box-sizing: border-box;
+}
+
 .step-right-container input {
     width: 370px;
     height: 35px;
@@ -209,13 +217,13 @@ body p {
     text-overflow: ellipsis;
 }
 
-
-.producto-input{
+.producto-input {
     display: block;
     color: #4B4B4B;
 }
 
-.producto-input input, .producto-input textarea{
+.producto-input input,
+.producto-input textarea {
     width: 100%;
     height: 35px;
     background: #FFFFFF;
@@ -223,7 +231,8 @@ body p {
     box-sizing: border-box;
 }
 
-.aceptar, .cancelar{
+.aceptar,
+.cancelar {
     width: 100px;
     height: 35px;
     background: #8800FF;
@@ -236,9 +245,10 @@ body p {
     border-radius: 5px;
 }
 
-.cancelar{
+.cancelar {
     background-color: #c91313 !important;
 }
+
 #email-error {
     color: red;
 }
@@ -267,12 +277,20 @@ body p {
     color: red;
 }
 
-footer{
+#combobox-error {
+    color: red;
+}
+
+#usuario-error {
+    color: red;
+}
+
+footer {
     position: absolute;
     width: 100%;
 }
 
-.footer{
+.footer {
     background-color: #8800FF;
     height: 10vh;
     color: #fff;
