@@ -1,6 +1,7 @@
 <?php
-include("./inc/conexion.php");
+require_once(__DIR__.'./../inc/conexion.php');
 $numeroRandom = rand(100000, 999999) ;
+
 if(isset($_POST['enviarMail'])){
    $to      = $_POST['email'];
    $subject = "Correo de Confirmacion";
@@ -10,6 +11,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 mail($to, $subject, $message, $headers);
 }
 if(isset($_POST['finalizar'])) {
+	$jsondata = array();
 	$mail = $_POST['email'];
 	$sql = "SELECT Email FROM usuarios WHERE Email='$mail'";
 	$stmt=$conectar->prepare($sql);
@@ -23,20 +25,22 @@ if(isset($_POST['finalizar'])) {
 		if ($stmt){
 			$stmt->bind_param('sssssss', $mail, $contrasenia, $nombre, $apellido, $fechaNacimiento, $Dni, $usuario);
 			$mail = $_POST['email'];
-			$contrasenia = $_POST['password'];
+			$contrasenia = md5($_POST['password']);
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$fechaNacimiento = $_POST['fechaNacimiento'];
 			$Dni = $_POST['Dni'];
 			$usuario = $_POST['usuario'];
 			$crearUsuario=$stmt->execute();
-			if($crearUsuario){
-				echo 'creado';
-			}
 			$stmt->close();
-			} else {				
-				echo "1";	 
+			if($crearUsuario){
+				$jsondata['success'] = true;
 			}
+			} else {				
+				$jsondata['success'] = false;
+			}
+			header('Content-type: application/json; charset=utf-8');
+  			echo json_encode($jsondata);
 			
 		}
 }

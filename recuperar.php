@@ -75,7 +75,7 @@ include_once("clases/recuperar_logica.php");
                         <input class="col-md-12" type="text" name="codigo_recuperacion" id="codigo_recuperacion">
                     </div>
 
-                    <button class="siguienteCodigo" type="submit" name="validarCodigo_Recuperacion" onclick="CodigoRecuperacion()" >Validar</button>
+                    <button class="siguienteCodigo" type="submit" name="validarCodigoRecuperacion" onclick="CodigoRecuperacion() " >Validar</button>
                     <button class="siguiente" type="submit" hidden disabled >Siguiente</button>
                 </div>
             </div>

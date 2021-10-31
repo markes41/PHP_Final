@@ -1,5 +1,5 @@
 <?php
-include("clases/registrarse_logica.php");
+require_once(__DIR__.'./clases/registrarse_logica.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,7 +124,7 @@ include("clases/registrarse_logica.php");
                         <input class="col-md-12" type="number" name="Dni">
                     </div>
 
-                    <button class="siguiente" name="finalizar" type="submit">Finalizar</button>
+                    <button class="siguiente" type="submit" name="finalizar" >Finalizar</button>
                 </div>
             </div>
         </div>

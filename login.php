@@ -38,6 +38,7 @@
             <div class="col-md-6" style="margin:auto;" data-aos="fade-down" data-aos-duration="1500">
                 <div class="step-right-container text-center" >
                     <h3 class="titulo">Iniciar Sesion en <br>Crypto Lomas</h3>
+                    <p style="color: red;"><?php echo $credenciales ?></p>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Correo electrónico</label>
                         <input class="col-md-12" type="email" name="email">

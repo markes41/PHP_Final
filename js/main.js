@@ -129,6 +129,9 @@ $(document).ready(function() {
                 required: true,
                 email: true,
             },
+            codigo_recuperacion: {
+                required: true
+            }
         },
         messages: {
 
@@ -139,7 +142,11 @@ $(document).ready(function() {
             error.insertAfter(element)
         },
 
-        submitHandler: logicaForm
+        submitHandler: function(form) {
+            CodigoRecuperacion();
+            //submit via ajax
+            //This doesn't prevent the form from submitting.
+        }
     });
 });
 //#endregion
@@ -160,7 +167,7 @@ function Codigo() {
         swal.showLoading();
         $.ajax({
             type: 'POST',
-            url: 'registrarse.php',
+            url: 'clases/registrarse_logica.php',
             data: data,
             success: function(response) {
                 swal.close();
@@ -207,10 +214,12 @@ function CodigoRecuperacion() {
             title: 'Estamos validando el codigo ingresado'
         });
         swal.showLoading();
+        $data = $("#logicarecuperar").serialize();
         $.ajax({
             type: 'POST',
-            url: 'logicarecuperar.php',
-            dataType: "text",
+            url: 'clases/recuperar_logica.php',
+            data: $data,
+            dataType: "json",
             success: function(response) {
                 debugger
                 console.log(response)
@@ -226,26 +235,16 @@ function CodigoRecuperacion() {
                     );
 
                 } else {
-                    if (prueba == true) {
-                        Swal.fire(
-                            'Modo de prueba',
-                            'El codigo es</br>' + data,
-                            'success'
-                        );
-                    } else {
-
-                        Swal.fire(
-                            'Validacion Incorrecta',
-                            'Por favor ingrese el codigo enviado al mail correctamente',
-                            'warning'
-                        )
-                        return;
-                    }
-
+                    Swal.fire(
+                        'Validacion Incorrecta',
+                        'Por favor ingrese el codigo enviado al mail correctamente',
+                        'warning'
+                    )
+                    return;
                 }
+
             },
             error: function(xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
                 alert(thrownError);
             }
         });
@@ -255,34 +254,56 @@ function CodigoRecuperacion() {
 
 function logicaForm() {
     debugger
+    $data = $("#logicarecuperar").serialize();
     $.ajax({
         type: 'POST',
-        url: 'logicarecuperar.php',
-        dataType: "text",
+        url: 'clases/recuperar_logica.php',
+        data: $data,
+        dataType: "json",
         success: function(response) {
             debugger
+            alert(response);
             console.log(response);
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
         }
     });
-    return false;
+
 }
 
 
 function submitForm() {
     debugger
+    $data = $("#registrarse").serialize();
     $.ajax({
         type: 'POST',
-        url: 'registrarse.php',
-        dataType: "text",
+        url: 'clases/registrarse_logica.php',
+        data: $data,
+        dataType: "json",
         success: function(response) {
+            debugger
+            if (response.success == true) {
+                Swal.fire({
+                    title: 'Registro completado',
+                    text: "A continuacion sera redirigido para que pueda ingresar con su nueva cuenta!",
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Continuar!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(location).attr('href', 'https://localhost/PHP_Final/login.php');
+                    }
+                })
+
+            } else {
+                return;
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
 
         }
+
     });
-    return false;
+
 }
 
 //#endregion
