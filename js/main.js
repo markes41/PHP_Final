@@ -4,15 +4,21 @@ var primerStep = 1;
 var validar;
 var numeroRandom;
 var numeroRandomRecuperar;
-var prueba = false;
+var prueba = true;
 //#endregion
 
 //#region Steps
 jQuery(document).ready(function($) {
     $.extend($.fn, {
         nextStep: function(param) {
+            debugger
             if (validar != undefined) {
                 if (!validar.form()) {
+                    return;
+                }
+            }
+            if (validarLogica != undefined) {
+                if (!validarLogica.form()) {
                     return;
                 }
             }
@@ -129,24 +135,35 @@ $(document).ready(function() {
                 required: true,
                 email: true,
             },
-            codigo_recuperacion: {
-                required: true
-            }
+            password: {
+                required: true,
+                minlength: 6,
+                maxlength: 16
+            },
+            confirmpassword: {
+                required: true,
+                equalTo: '#password'
+            },
         },
         messages: {
 
             email: "Por favor ingrese un mail valido",
+            password: {
+                required: "Por favor ingrese la contraseña",
+                minlength: "La contraseña no puede tener menos de 6 caracteres"
+            },
+            confirmpassword: {
+                required: "Por favor vuelva a reingresar su contraseña",
+                equalTo: "Las constraseñas no coinciden!"
+            },
         },
+
         errorElement: 'div',
         errorPlacement: function(error, element) {
             error.insertAfter(element)
         },
 
-        submitHandler: function(form) {
-            CodigoRecuperacion();
-            //submit via ajax
-            //This doesn't prevent the form from submitting.
-        }
+        submitHandler: logicaForm
     });
 });
 //#endregion
@@ -206,28 +223,31 @@ function Codigo() {
     }
 }
 
-function CodigoRecuperacion() {
+
+function logicaForm() {
     debugger
-    if (currentStep == "2") {
-        debugger
-        swal.fire({
-            title: 'Estamos validando el codigo ingresado'
-        });
-        swal.showLoading();
-        $data = $("#logicarecuperar").serialize();
-        $.ajax({
-            type: 'POST',
-            url: 'clases/recuperar_logica.php',
-            data: $data,
-            dataType: "json",
-            success: function(response) {
-                debugger
-                console.log(response)
-                swal.close();
-                if (response == $('#codigo_recuperacion').val()) {
+    $data = $("#logicarecuperar").serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'clases/recuperar_logica.php',
+        data: $data,
+        dataType: "json",
+        async: false,
+        success: function(response) {
+            debugger
+            if (response.cuenta == 0) {
+                $('#step-' + currentStep).addClass('display-important');
+                currentStep--;
+                $('#step-' + currentStep).removeClass('display-important');
+                $('#credencialesRecuperar').html('');
+                $('#credencialesRecuperar').append('<p style="color:red">' + response.error + '</p>');
+
+            }
+            if (response.numero != "") {
+                if (response.numero.Codigo_Recuperacion == $('#codigo_recuperacion').val()) {
                     $('#siguiente').removeAttr('disabled');
                     $('#siguiente').removeAttr('hidden');
-                    $('#validarCodigo_Recuperacion').attr('hidden', 'hidden');
+                    $('#validarCodigoRecuperacion').attr('hidden', 'hidden');
                     Swal.fire(
                         'Validado Correctamente',
                         'Puede avanzar al siguiente paso!',
@@ -242,28 +262,7 @@ function CodigoRecuperacion() {
                     )
                     return;
                 }
-
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                alert(thrownError);
             }
-        });
-    }
-}
-
-
-function logicaForm() {
-    debugger
-    $data = $("#logicarecuperar").serialize();
-    $.ajax({
-        type: 'POST',
-        url: 'clases/recuperar_logica.php',
-        data: $data,
-        dataType: "json",
-        success: function(response) {
-            debugger
-            alert(response);
-            console.log(response);
         }
     });
 
@@ -278,6 +277,7 @@ function submitForm() {
         url: 'clases/registrarse_logica.php',
         data: $data,
         dataType: "json",
+        async: false,
         success: function(response) {
             debugger
             if (response.success == true) {

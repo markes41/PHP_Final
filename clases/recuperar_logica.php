@@ -15,6 +15,10 @@ $sql = "SELECT Email FROM usuarios WHERE Email='$destino' and UserName='$nombre'
 	$row = $row->num_rows;	
 	$stmt->close();
 	if($row == 0){	
+		$jsondata['error'] = "El usuario o el mail ingresado no existen.";
+		$jsondata['cuenta'] = $row;
+		header('Content-type: application/json; charset=utf-8');
+  		echo json_encode($jsondata);
 		return;
 	} else {
 		$sSQL="UPDATE usuarios SET Codigo_Recuperacion = ? Where Email= ?";

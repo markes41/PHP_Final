@@ -27,7 +27,7 @@ include_once("clases/recuperar_logica.php");
             <div class="step-left-background col-md-6 ">
                 <div class="vh-100 d-xl-block justify-content-center container-fluid" data-aos="fade-down" data-aos-duration="1500" style="margin-left: 30px">
                     <div class="min-vh-100 d-flex align-items-center ">
-                        <div class="row">
+                        <div class="row" >
                             <h1 class="col-md-12">Recuperar cuenta</h1>
                             <p class="col-md-12">Ten en cuenta que para recuperar tu cuenta vamos a necesitar algunos datos...</p>
                         </div>
@@ -37,7 +37,7 @@ include_once("clases/recuperar_logica.php");
             <div class="col-md-6" style="margin:auto;" data-aos="fade-down" data-aos-duration="1500">
                 <div class="step-right-container text-center" >
                     <h3 class="titulo">Recuperar cuenta en <br>Crypto Lomas</h3>
-
+                    <div id="credencialesRecuperar"></div>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Nombre de usuario</label>
                         <input class="col-md-12" type="text" name="usuario">
@@ -75,8 +75,8 @@ include_once("clases/recuperar_logica.php");
                         <input class="col-md-12" type="text" name="codigo_recuperacion" id="codigo_recuperacion">
                     </div>
 
-                    <button class="siguienteCodigo" type="submit" name="validarCodigoRecuperacion" onclick="CodigoRecuperacion() " >Validar</button>
-                    <button class="siguiente" type="submit" hidden disabled >Siguiente</button>
+                    <button class="siguienteCodigo" type="submit"  name="validarCodigoRecuperacion" id="validarCodigoRecuperacion">Validar</button>
+                    <button class="siguiente" type="submit" id="siguiente" hidden disabled >Siguiente</button>
                 </div>
             </div>
         </div>
@@ -99,12 +99,12 @@ include_once("clases/recuperar_logica.php");
                     <h3 class="titulo">Nueva Contraseña</h3>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
-                        <input class="col-md-12" type="password" name="Contraseña1">
+                        <input class="col-md-12" id="password" type="password" name="password">
                     </div>
 
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Repetir Contraseña</label>
-                        <input class="col-md-12" type="password" name="Contraseña2">
+                        <input class="col-md-12" type="password" name="confirmpassword">
                     </div>
 
                     <button class="siguiente" type="submit">Finalizar</button>

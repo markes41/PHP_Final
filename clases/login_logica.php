@@ -1,7 +1,7 @@
 <?php
 include("./inc/conexion.php");
 session_start();
-$credenciales = "";
+$credencialesLogin = "";
 if(isset($_POST['IniciarSesion'])) {
 	$mail = $_POST['email'];
     $pass = md5($_POST['passwordLogin']);
@@ -14,7 +14,7 @@ if(isset($_POST['IniciarSesion'])) {
         $_SESSION['login_user'] = $mail;
         header("location: index.php");
 	} else {				
-            $credenciales = "Las credenciales son invalidas";	 
+            $credencialesLogin = "Las credenciales son invalidas";	 
 			}
 			
 	}

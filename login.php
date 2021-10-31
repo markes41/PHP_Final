@@ -30,7 +30,7 @@
                     <div class="min-vh-100 d-flex align-items-center ">
                         <div class="row">
                             <h1 class="col-md-12">Iniciar Sesion</h1>
-                            <p class="col-md-12">ingresa tu usuario y contraseña para poder ingresar a tu cuenta.</p>
+                            <p class="col-md-12">Ingresa tu usuario y contraseña para poder ingresar a tu cuenta.</p>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
             <div class="col-md-6" style="margin:auto;" data-aos="fade-down" data-aos-duration="1500">
                 <div class="step-right-container text-center" >
                     <h3 class="titulo">Iniciar Sesion en <br>Crypto Lomas</h3>
-                    <p style="color: red;"><?php echo $credenciales ?></p>
+                    <p style="color: red;"><?php echo $credencialesLogin ?></p>
                     <div class="correo-container mt-2">
                         <label class="col-md-12" for="">Correo electrónico</label>
                         <input class="col-md-12" type="email" name="email">
@@ -47,7 +47,7 @@
                     <div class="password-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
                         <input class="col-md-12"  id="password" type="password" name="passwordLogin">
-                        <div class="col-md-12"> <a href="recuperar.php">Olvidate la contraseña?</a></div>
+                        <div class="col-md-12"> <a href="recuperar.php">Olvidaste la contraseña?</a></div>
                        
                     </div>
                     <button class="siguienteCodigo" type="submit" name="IniciarSesion" >Iniciar Sesion</button>
