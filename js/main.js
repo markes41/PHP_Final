@@ -182,6 +182,40 @@ $(document).ready(function() {
 
 //#region  Funciones
 
+
+function eliminarDatos(Id) {
+    Swal.fire({
+        title: 'Cuidado!',
+        text: "Esta seguro que deseas eliminar el usuario?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#cd2905',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Eliminar'
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                data: "Id=" + Id,
+                url: "./clases/usuario_editar.php",
+                dataType: "json",
+                success: function(response) {
+                    debugger
+                    if (response.success == true) {
+                        location.reload();
+                    } else {
+
+                    }
+                }
+            });
+        }
+    })
+
+
+}
+
 function StringIsNullOrEmpty(value) {
     return (!value || value == undefined || value == "" || value.length == 0);
 }
