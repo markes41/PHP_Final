@@ -11,7 +11,6 @@ var prueba = true;
 jQuery(document).ready(function($) {
     $.extend($.fn, {
         nextStep: function(param) {
-            debugger
             if (validar != undefined) {
                 if (!validar.form()) {
                     return;
@@ -22,7 +21,6 @@ jQuery(document).ready(function($) {
                     return;
                 }
             }
-
             var div = $('#step-' + currentStep);
             var isFunction = div.attr('action-next');
             var response = true;
@@ -37,7 +35,6 @@ jQuery(document).ready(function($) {
             }
         },
         prevStep: function(param) {
-            debugger
             if (currentStep == primerStep)
                 return;
             $('#step-' + currentStep).hide();
@@ -183,14 +180,12 @@ $(document).ready(function() {
 //#region  Funciones
 
 function editarDatos(Id) {
-    debugger
     $.ajax({
         type: "POST",
         data: "Id=" + Id,
         url: "./clases/usuario_obtenerdatos.php",
         dataType: "json",
         success: function(response) {
-            debugger
             $('#id').val(response[0].Id);
             $('#nombre').val(response[0].Nombre);
             $('#apellido').val(response[0].Apellido);
@@ -238,7 +233,6 @@ function StringIsNullOrEmpty(value) {
 }
 
 function ValidarCodigo() {
-    debugger
     if (numeroRandom != undefined && currentStep == "2") {
         var data = window.numeroRandom;
         var codigoIngresado = $('#codigo').val()
@@ -290,6 +284,14 @@ function logicaForm() {
 
             }
             if (response.numero != undefined) {
+                debugger
+                if (prueba == true) {
+                    Swal.fire(
+                        'Modo de prueba',
+                        'El codigo es</br>' + response.numero.Codigo_Recuperacion,
+                        'success'
+                    );
+                }
                 if (response.numero.Codigo_Recuperacion == $('#codigo_recuperacion').val()) {
                     $('#siguiente').removeAttr('disabled');
                     $('#siguiente').removeAttr('hidden');
@@ -301,13 +303,16 @@ function logicaForm() {
                     );
 
                 } else {
-                    Swal.fire(
-                        'Validacion Incorrecta',
-                        'Por favor ingrese el codigo enviado al mail correctamente',
-                        'warning'
-                    )
-                    return;
+                    if (prueba == false) {
+                        Swal.fire(
+                            'Validacion Incorrecta',
+                            'Por favor ingrese el codigo enviado al mail correctamente',
+                            'warning'
+                        );
+                    }
+
                 }
+
             }
 
             if (response.cambio != undefined) {
@@ -340,7 +345,6 @@ function logicaForm() {
 
 
 function submitForm() {
-    debugger
     $data = $("#registrarse").serialize();
     $.ajax({
         type: 'POST',
@@ -378,7 +382,6 @@ function submitForm() {
 $(document).ready(function() {
 
     $('#btnActualizar').click(function() {
-        debugger
         datos = $('#editar').serialize();
         $.ajax({
             type: "POST",
@@ -386,7 +389,6 @@ $(document).ready(function() {
             url: "./clases/usuario_editar.php",
             dataType: "json",
             success: function(response) {
-                debugger
                 if (response.success == true) {
                     Swal.fire({
                         title: 'Correcto',
