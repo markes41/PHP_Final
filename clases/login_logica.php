@@ -2,6 +2,10 @@
 include("./inc/conexion.php");
 session_start();
 $credencialesLogin = "";
+if(isset($_SESSION['login_user'])){
+    header("location:index.php");
+    die();
+}
 if(isset($_POST['IniciarSesion'])) {
 	$mail = $_POST['email'];
     $pass = md5($_POST['passwordLogin']);

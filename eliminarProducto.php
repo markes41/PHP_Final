@@ -1,9 +1,10 @@
 <?php 
-
     include('inc/header.php');
-
+    if($rol  == "Usuario"){
+        header("location:index.php");
+        die();
+    }
     $id = $_GET['eliminar'];
-
     include('productoDatabase/obtenerProductoPorId.php');
 ?>
 

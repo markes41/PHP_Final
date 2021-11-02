@@ -48,15 +48,6 @@ require_once(__DIR__.'./clases/registrarse_logica.php');
                         <input class="col-md-12" type="email" name="email">
                     </div>
 
-                    <div class="rol-container mt-2">
-                        <label class="col-md-12" for="">Rol</label>
-                        <select class="col-md-5 Rol-container" name="combobox" style="text-align: center;">
-                            <option value="" selected disabled hidden>---Seleccionar---</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Usuario">Usuario</option> 
-                        </select>
-                    </div>
-
                     <div class="password-container mt-2">
                         <label class="col-md-12" for="">Contraseña</label>
                         <input class="col-md-12"  id="password" type="password" name="password">
@@ -91,7 +82,7 @@ require_once(__DIR__.'./clases/registrarse_logica.php');
                         <label class="col-md-12" for="">Código de verificación</label>
                         <input class="col-md-12" type="text" name="codigo" id="codigo">
                     </div>
-                    <button class="siguienteCodigo" type="submit" id="validarCodigo" onclick="Codigo()">Validar codigo</button>
+                    <button class="siguienteCodigo" type="submit" id="validarCodigo" onclick="ValidarCodigo()">Validar codigo</button>
 
                     <button class="siguiente" type="submit" id="siguiente" disabled hidden>Siguiente</button>
                 </div>

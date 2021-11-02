@@ -1,6 +1,9 @@
 <?php 
     include('inc/header.php');
-
+	if($rol  == "Usuario"){
+		header("location:index.php");
+		die();
+	}
 ?>
 
 <div class="container">

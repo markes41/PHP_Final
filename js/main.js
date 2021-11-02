@@ -182,41 +182,8 @@ $(document).ready(function() {
 
 //#region  Funciones
 
-$(document).ready(function() {
-
-    $('#btnActualizar').click(function() {
-        debugger
-        datos = $('#editar').serialize();
-
-        $.ajax({
-            type: "POST",
-            data: datos,
-            url: "./clases/usuario_editar.php",
-            dataType: "json",
-            success: function(response) {
-                debugger
-                if (response.success == true) {
-                    Swal.fire({
-                        title: 'Correcto',
-                        text: "Se actualizo correctamente el usuario",
-                        icon: 'success',
-                        showCancelButton: false,
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Continuar'
-
-                    }).then((result) => {
-                        location.reload();
-                    })
-
-                } else {
-
-                }
-            }
-        });
-    });
-});
-
 function editarDatos(Id) {
+    debugger
     $.ajax({
         type: "POST",
         data: "Id=" + Id,
@@ -250,10 +217,9 @@ function eliminarDatos(Id) {
             $.ajax({
                 type: "POST",
                 data: "Id=" + Id,
-                url: "./clases/usuario_editar.php",
+                url: "./clases/usuario_borrar.php",
                 dataType: "json",
                 success: function(response) {
-                    debugger
                     if (response.success == true) {
                         location.reload();
                     } else {
@@ -271,67 +237,50 @@ function StringIsNullOrEmpty(value) {
     return (!value || value == undefined || value == "" || value.length == 0);
 }
 
-function Codigo() {
+function ValidarCodigo() {
+    debugger
     if (numeroRandom != undefined && currentStep == "2") {
-        debugger
         var data = window.numeroRandom;
-        swal.fire({
-            title: 'Estamos validando el codigo ingresado'
-        });
-        swal.showLoading();
-        $.ajax({
-            type: 'POST',
-            url: 'clases/registrarse_logica.php',
-            data: data,
-            success: function(response) {
-                swal.close();
-                var codigoIngresado = $('#codigo').val()
-                if (data == codigoIngresado) {
-                    $('#siguiente').removeAttr('disabled');
-                    $('#siguiente').removeAttr('hidden');
-                    $('#validarCodigo').attr('hidden', 'hidden');
-                    Swal.fire(
-                        'Validado Correctamente',
-                        'Puede avanzar al siguiente paso!',
-                        'success'
-                    );
+        var codigoIngresado = $('#codigo').val()
+        if (data == codigoIngresado) {
+            $('#siguiente').removeAttr('disabled');
+            $('#siguiente').removeAttr('hidden');
+            $('#validarCodigo').attr('hidden', 'hidden');
+            Swal.fire(
+                'Validado Correctamente',
+                'Puede avanzar al siguiente paso!',
+                'success'
+            );
 
-                } else {
-                    if (prueba == true) {
-                        Swal.fire(
-                            'Modo de prueba',
-                            'El codigo es</br>' + data,
-                            'success'
-                        );
-                    } else {
+        } else {
+            if (prueba == true) {
+                Swal.fire(
+                    'Modo de prueba',
+                    'El codigo es</br>' + data,
+                    'success'
+                );
+            } else {
 
-                        Swal.fire(
-                            'Validacion Incorrecta',
-                            'Por favor ingrese el codigo enviado al mail correctamente',
-                            'warning'
-                        )
-                        return;
-                    }
-
-
-                }
+                Swal.fire(
+                    'Validacion Incorrecta',
+                    'Por favor ingrese el codigo enviado al mail correctamente',
+                    'warning'
+                )
+                return;
             }
-        });
+        }
     }
 }
 
 
 function logicaForm() {
-    debugger
     $data = $("#logicarecuperar").serialize();
     $.ajax({
         type: 'POST',
         url: 'clases/recuperar_logica.php',
         data: $data,
         dataType: "json",
-        async: false,
         success: function(response) {
-            debugger
             if (response.cuenta == 0) {
                 $('#step-' + currentStep).addClass('display-important');
                 currentStep--;
@@ -398,9 +347,7 @@ function submitForm() {
         url: 'clases/registrarse_logica.php',
         data: $data,
         dataType: "json",
-        async: false,
         success: function(response) {
-            debugger
             if (response.success == true) {
                 Swal.fire({
                     title: 'Registro completado',
@@ -418,13 +365,59 @@ function submitForm() {
             } else {
                 return;
             }
-        },
-        error: function(xhr, ajaxOptions, thrownError) {
-
         }
 
     });
 
 }
+
+//#endregion
+
+//#region Ejecucion
+
+$(document).ready(function() {
+
+    $('#btnActualizar').click(function() {
+        debugger
+        datos = $('#editar').serialize();
+        $.ajax({
+            type: "POST",
+            data: datos,
+            url: "./clases/usuario_editar.php",
+            dataType: "json",
+            success: function(response) {
+                debugger
+                if (response.success == true) {
+                    Swal.fire({
+                        title: 'Correcto',
+                        text: "Se actualizo correctamente el usuario",
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Continuar'
+
+                    }).then((result) => {
+                        location.reload();
+                    })
+
+                } else {
+                    if (response.messages != undefined) {
+                        Swal.fire(
+                            'Validacion Incorrecta',
+                            response.messages,
+                            'warning'
+                        )
+                        return;
+                    }
+                }
+            }
+        });
+    });
+
+    $(".cerrarModal").click(function() {
+        $("#exampleModal").modal('hide');
+    });
+});
+
 
 //#endregion

@@ -1,6 +1,10 @@
 <?php    
 include('inc/conexion.php'); 
 include('inc/header.php');
+if($rol  == "Usuario"){
+    header("location:index.php");
+    die();
+}
 ?>
 
 <div class="container home">    
@@ -67,16 +71,20 @@ include('inc/header.php');
 						<label>Apellido</label>
 						<input type="text" class="form-control input-sm" id="apellido" name="apellido">
 						<label>Mail</label>
-						<input type="text" class="form-control input-sm" id="mail" name="mail">
+						<input type="text" class="form-control input-sm" id="mail" name="mail" readonly>
                         <label>Dni</label>
 						<input type="text" class="form-control input-sm" id="dni" name="dni">
                         <label>Rol</label>
-						<input type="text" class="form-control input-sm" id="rol" name="rol">
+                        <select class="form-control input-sm" id="rol" name="rol" style="text-align: center;">
+                            <option value="" selected disabled hidden>---Seleccionar---</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Usuario">Usuario</option> 
+                        </select>
 					</form>
 				</div>
 				<div class="modal-footer">
                     <button type="button" class="btn btn-warning" id="btnActualizar">Actualizar</button>
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-secondary cerrarModal">Cerrar</button>
 					
 				</div>
     </div>
