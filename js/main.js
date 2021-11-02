@@ -182,6 +182,57 @@ $(document).ready(function() {
 
 //#region  Funciones
 
+$(document).ready(function() {
+
+    $('#btnActualizar').click(function() {
+        debugger
+        datos = $('#editar').serialize();
+
+        $.ajax({
+            type: "POST",
+            data: datos,
+            url: "./clases/usuario_editar.php",
+            dataType: "json",
+            success: function(response) {
+                debugger
+                if (response.success == true) {
+                    Swal.fire({
+                        title: 'Correcto',
+                        text: "Se actualizo correctamente el usuario",
+                        icon: 'success',
+                        showCancelButton: false,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Continuar'
+
+                    }).then((result) => {
+                        location.reload();
+                    })
+
+                } else {
+
+                }
+            }
+        });
+    });
+});
+
+function editarDatos(Id) {
+    $.ajax({
+        type: "POST",
+        data: "Id=" + Id,
+        url: "./clases/usuario_obtenerdatos.php",
+        dataType: "json",
+        success: function(response) {
+            debugger
+            $('#id').val(response[0].Id);
+            $('#nombre').val(response[0].Nombre);
+            $('#apellido').val(response[0].Apellido);
+            $('#mail').val(response[0].Email);
+            $('#dni').val(response[0].Dni);
+            $('#rol').val(response[0].Rol);
+        }
+    });
+}
 
 function eliminarDatos(Id) {
     Swal.fire({

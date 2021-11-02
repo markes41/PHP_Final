@@ -1,7 +1,7 @@
 <?php 
     $id = $_POST['Id'];
     $jsondata = array();
-    include('./../inc/conexion.php');
+    require_once(__DIR__.'./../inc/conexion.php');
 
     $sentencia = $conectar->prepare("DELETE FROM usuarios WHERE Id = ?");
     $sentencia->bind_param('i', $id);
