@@ -1,6 +1,7 @@
 <?php
     include_once('inc/header.php');
     include_once('productoDatabase/obtenerProductos.php');
+   
 ?>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -53,8 +54,8 @@
                     <p class="titulo-producto m-1" title="iPhone 12 Pro Max 256gb Vs. Colores Caja Sellada Gtía Apple"><?php echo $prod["Titulo"] ?></p>
                     <div class="d-flex align-items-center ">
                         <p class="precio m-1">$<?php echo $prod["Precio_Unitario"] ?></p>
-                        <a role="button" style="margin: 0 10px;color: #ffae19;" href="editarProducto.php?edit=<?php echo $prod['Id']; ?>" class="text-decoration-none"> <i class="far fa-edit" style="margin-right: 5px;"></i>Editar</a>
-                        <a role="button" style="color: #ff1d1d;" href="eliminarProducto.php?eliminar=<?php echo $prod['Id']; ?>" class="text-decoration-none"> <i class="far fa-trash-alt" style="margin-right: 5px;"></i>Eliminar</a>
+                        <a role="button" style="margin: 0 10px;color: #ffae19;" href="editarProducto.php?edit=<?php echo $prod['Id']; ?>" class="text-decoration-none btn_roles"> <i class="far fa-edit" style="margin-right: 5px;"></i>Editar</a>
+                        <a role="button" style="color: #ff1d1d;" href="eliminarProducto.php?eliminar=<?php echo $prod['Id']; ?>" class="text-decoration-none btn_roles"> <i class="far fa-trash-alt" style="margin-right: 5px;"></i>Eliminar</a>
                     </div>
                 </div>
             </div>
@@ -69,5 +70,12 @@
 ?>
 <script>
     AOS.init();
+    debugger
+    var tipo_rol = "<?php echo $rol?>";
+
+    if(tipo_rol != "Admin"){
+        $(".btn_roles").attr("hidden",true);
+        
+    }
     
 </script>

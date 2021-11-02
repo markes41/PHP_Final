@@ -57,11 +57,11 @@ include('./clases/session_logica.php');
                         <?php if($_SESSION['login_user'] != ""): ?>
     
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="agregarProducto.php">Agregar Producto</a>
+                                <a class="nav-link active btn_roles" aria-current="page" href="agregarProducto.php">Agregar Producto</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="./usuarios.php">Editar Usuarios</a>
+                                <a class="nav-link active btn_roles" aria-current="page" href="./usuarios.php">Editar Usuarios</a>
                             </li>
 
                             <li class="nav-item">

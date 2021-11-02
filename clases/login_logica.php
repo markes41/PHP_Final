@@ -10,6 +10,8 @@ if(isset($_POST['IniciarSesion'])) {
 	$stmt->execute();
 	$row = $stmt->get_result();	
 	$row = $row->num_rows;	
+
+	
 	if($row == 1){	
         $_SESSION['login_user'] = $mail;
         header("location: index.php");

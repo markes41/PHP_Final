@@ -1,10 +1,10 @@
 <?php
-   include('./inc/conexion.php');
+    include('./inc/conexion.php');
    session_start();
    $username;
    $checkMail = $_SESSION['login_user'];
    if($checkMail != ""){
-   $sql = "SELECT Username FROM usuarios WHERE email = '$checkMail'";
+   $sql = "SELECT Username, Rol FROM usuarios WHERE email = '$checkMail'";
    $stmt=$conectar->prepare($sql);
    $stmt->execute();
    $row = $stmt->get_result();	
@@ -12,9 +12,10 @@
    $stmt->execute();
    $result = $stmt->get_result();
 while ($row = $result->fetch_assoc()) {
-        $username = $row['Username'];
+      $username = $row['Username'];
+      $rol = $row['Rol'];
 }
-   if(!isset($_SESSION['login_user'])){
+if(!isset($_SESSION['login_user'])){
     header("location:index.php");
     die();
    }
